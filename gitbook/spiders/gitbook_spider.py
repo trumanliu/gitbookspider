@@ -10,16 +10,20 @@ class GitBookSpider(scrapy.Spider):
 	start_urls = ["https://www.gitbook.com/explore/"]
 	#解析页面内容并组成对象
 	def parse_item(self,response):
+		print 'in.....'
 		sel = Selector(response)
 		books=[]
-		bookdivs = sel.xpath('//div[@class="book col-xs-6 col-sm-3 col-md-3 col-lg-3"]')
+		bookdivs = sel.xpath('//div[@class="book"]')
 		for index, link in enumerate(bookdivs):
 			book = GitbookItem();
-			book['rbookName']=link.xpath('.//a[@class="book-cover"]/@href').extract()
-			book['rabookName']=link.xpath('.//div[@class="mask-inner"]/h3//text()').extract()
-			book['readCount']=link.xpath('.//div[@class="book-infos"]/p//text()').extract()
+			book['rbookName']=link.xpath('.//div[@class="book-cover"]//a/@href').extract()
+			book['rabookName']=link.xpath('.//div[@class="book-infos"]//h3//a//text()').extract()
+			book['readCount']=link.xpath('.//div[@class="book-footer"]//span[2]//@title').re(r'\d+k?')
 			book['coverAddress']=link.xpath('.//img/@src').extract()
+			if book['readCount'][0].endswith('python'):
+				book['readCount']=int(book['readCount'][0])*1000
 			books.append(book)
+			print book
 		return books
 
 	def parse(self, response):
