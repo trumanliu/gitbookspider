@@ -9,9 +9,9 @@
 ###2.整个项目的技术选择
   **1**.爬虫---python scrapy：scrapy是一个成熟的爬虫，xpath选择器真的很强大，文档齐全。当然顺道把快要丢下的python拾起来。    
   **2**.DB ---mysql:本来真的想要使用mongo的，但我在公网只有屌丝的php+mysql虚拟主机。等我有钱上vps了应该就可以了。  
-  **3**.后台---php:参见第一条  
+  **3**.后台---php:参见第2条  
   **4**.app---android:暂时先考虑android。  
-  **5**.文档编写---markdown 虽然我认为使用非vim的人都应该被烧死,但我还是使用了retext在写你看到的这些文字。并经是要给别人看的东西，我希望不要太丑。
+  **5**.文档编写---markdown 虽然我认为使用非vim的人都应该被烧死,但我还是使用了retext在写你看到的这些文字。毕竟是要给别人看的东西，我希望不要太丑。
 ###3.安装scrapy
   请参考[scrapy文档](http://doc.scrapy.org/en/0.24/)，如果看英文有问题请查看[中文文档](http://scrapy-chs.readthedocs.org/zh_CN/0.24/).
    
