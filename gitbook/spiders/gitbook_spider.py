@@ -18,7 +18,7 @@ class GitBookSpider(scrapy.Spider):
 			book = GitbookItem();
 			book['rbookName']=link.xpath('.//div[@class="book-cover"]//a/@href').extract()
 			book['rabookName']=link.xpath('.//div[@class="book-infos"]//h3//a//text()').extract()
-			book['readCount']=link.xpath('.//div[@class="book-footer"]//span[2]//@title').re(r'\d+k?')
+			book['readCount']=link.xpath('.//div[@class="book-footer"]//span[2]//@aria-label').re(r'\d+k?')
 			book['coverAddress']=link.xpath('.//img/@src').extract()
 			if book['readCount'][0].endswith('python'):
 				book['readCount']=int(book['readCount'][0])*1000
@@ -28,7 +28,7 @@ class GitBookSpider(scrapy.Spider):
 
 	def parse(self, response):
 		#获取最后一页页码
-		lastNum = response.xpath('//ul[@class="pagination pagination-pages"]//li[5]//text()').extract()
+		lastNum = response.xpath('//ul[@class="pagination-pages"]//li[5]//text()').extract()
 		validurls = []
 		#添加首页
 		validurls.append("https://www.gitbook.com/explore")
