@@ -40,7 +40,8 @@
 在pipeline.py中将书籍信息存入mysql,在这里使用了[MySQLdb](http://sourceforge.net/projects/mysql-python/),详细的安装过程请大家参照文档进行。顺便提醒一下，在安装之前查看软件的README是一个life-saving的习惯。  
 在mysql数据库的管理方面推荐使用phpMyadmin。
 存入数据库的代码没有什么技术含量,大家看一下就好了。   
-当然在使用前需要设计一下数据库,根据我们前面对book信息的分析我们的间表sql为:  
+当然在使用前需要设计一下数据库,根据我们前面对book信息的分析我们的建表sql为:  
+```sql
     CREATE TABLE `books` (
  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '书籍id',
  `rbookname` varchar(256) COLLATE utf8_bin DEFAULT NULL COMMENT '原始书籍名称带有作者信息',
@@ -55,7 +56,7 @@
  `coveraddress` varchar(300) COLLATE utf8_bin NOT NULL COMMENT '封面图片地址',
  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5905 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='书籍表'  
-
+```
 编写完pipelines.py要在settings.py配置一下。
 ###7.运行爬虫
     scrapy crawl gitbook (-o book.json )  运行完成后数据库中应该就有书籍的信息了。
