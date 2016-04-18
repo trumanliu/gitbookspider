@@ -16,12 +16,10 @@ class GitBookSpider(scrapy.Spider):
 		bookdivs = sel.xpath('//div[@class="book"]')
 		for index, link in enumerate(bookdivs):
 			book = GitbookItem();
-			book['rbookName']=link.xpath('.//div[@class="book-cover"]//a/@href').extract()
-			book['rabookName']=link.xpath('.//div[@class="book-infos"]//h3//a//text()').extract()
-			book['readCount']=link.xpath('.//div[@class="book-footer"]//span[2]//@aria-label').re(r'\d+k?')
+			book['rbookName']=link.xpath('.//div[@class="book-inner"]//div[@class="book-header"]//a/@href').extract()
+			book['rabookName']=link.xpath('.//div[@class="book-inner"]//div[@class="book-header"]//a//h4//text()').extract()
 			book['coverAddress']=link.xpath('.//img/@src').extract()
-			if book['readCount'][0].endswith('python'):
-				book['readCount']=int(book['readCount'][0])*1000
+                        book['summary']=link.xpath('.//div[@class="book-inner"]//div[@class="book-summary"]//p//text()').extract()
 			books.append(book)
 			print book
 		return books

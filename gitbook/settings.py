@@ -12,8 +12,7 @@ BOT_NAME = 'gitbook'
 
 SPIDER_MODULES = ['gitbook.spiders']
 NEWSPIDER_MODULE = 'gitbook.spiders'
-ITEM_PIPELINES = {'gitbook.pipelines.GitbookPipeline': 1
-}
+ITEM_PIPELINES = {'gitbook.pipelines.GitbookPipeline': 1 }
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'gitbook (+http://www.yourdomain.com)'

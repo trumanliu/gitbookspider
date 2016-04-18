@@ -20,3 +20,4 @@ class GitbookItem(scrapy.Item):
 	rate=scrapy.Field();
 	readCount=scrapy.Field();
 	coverAddress=scrapy.Field();
+        summary=scrapy.Field();
