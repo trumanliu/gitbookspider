@@ -7,7 +7,7 @@
   听我一句劝吧，如果你不是mac用户就安装一个ubuntu吧。我曾经在win上安装过一次scrapy,并且特意写了一篇[blog](http://www.trumanliu.com/windows-scrapy-install/)来记录整个安装过程中遇到的问题。写那篇blog的时候我还在嘲笑ubuntu太简便了，想想那时候很二。本项目的实现是在ubuntu 14.04LTS 下进行的。如果你没有安装ubuntu而在其它系统下使用，请仔细
 查看官方的帮助文档。  
 ###2.整个项目的技术选择
-  **1**.爬虫---python scrapy：scrapy是一个成熟的爬虫，xpath选择器真的很强大，文档齐全。当然顺道把快要丢下的python拾起来。    
+  **1**.爬虫---python scrapy：scrapy是一个成熟的爬虫，xpath选择器真的很强大，文档齐全。当然顺道把快要丢下的python拾起来。目前，本项目已支持scrapy 1.0版本。    
   **2**.DB ---mysql:本来真的想要使用mongo的，但我在公网只有屌丝的php+mysql虚拟主机。等我有钱上vps了应该就可以了。  
   **3**.后台---php:参见第2条  
   **4**.app---android:暂时先考虑android。  
